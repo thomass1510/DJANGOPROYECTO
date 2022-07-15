@@ -42,10 +42,6 @@ def formestudiantes(request):
         form = Formestudiantes()
     return render(request, "AppCoder/estudiantes.html", {"formulario":form})
 
-def entregables(request):
-
-    return render(request, "AppCoder/entregables.html")
-
 def cursoForm(request):
 
     if request.method == "POST":
