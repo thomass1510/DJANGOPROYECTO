@@ -24,10 +24,19 @@
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">DJANGO</a>
                 <a class="btn btn-primary" href="{% url 'inicio' %}">INICIO</a>
-                <a class="btn btn-primary" href="{% url 'profesores' %}">PROFESORES</a>
-                <a class="btn btn-primary" href="{% url 'estudiantes' %}">ESTUDIANTES</a>
+                <a class="btn btn-primary" href="{% url 'leerProfesores' %}">PROFESORES</a>
+                <a class="btn btn-primary" href="{% url 'pagEstudiantes' %}">ESTUDIANTES</a>
                 <a class="btn btn-primary" href="{% url 'cursos' %}">CURSOS</a>
                 <a class="btn btn-primary" href="{% url 'busquedaCamada' %}">BUSCAR CAMADA</a>
+                {% if not request.user.is_authenticated %}
+                <a class="btn btn-danger" href="{% url 'login' %}">LOGIN</a>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                <p class="text-muted mb-4 mb-lg-0">Hola {{user.first_name}}!!</p>
+                <a class="btn btn-danger" href="{% url 'editarPerfil' %}">Editar Perfil</a>
+                {% endif %}
+                <a class="btn btn-danger" href="{% url 'logout' %}">LOGOUT</a>
+                
             </div>
         </nav>
         <!-- Masthead-->
